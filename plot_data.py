@@ -13,7 +13,7 @@ ax1 = fig.add_subplot(111)
 ax1.set_title("Plot title")
 ax1.set_xlabel('x label')
 ax1.set_ylabel('y label')
-ax1.plot(x,y,c='r', label='the data')
+ax1.plot(x,y)
 
 leg = ax1.legend()
 
