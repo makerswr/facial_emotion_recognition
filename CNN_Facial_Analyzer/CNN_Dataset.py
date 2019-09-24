@@ -3,6 +3,7 @@ import keras as K
 import pandas as pd
 from keras import backend
 from keras import datasets
+from matplotlib import pyplot as plt
 
 ANGRY, DISGUST, FEAR, HAPPY, SAD, SURPRISE, NEUTRAL = 0, 1, 2, 3, 4, 5, 6
 
@@ -11,24 +12,25 @@ class DATA():
         numOfClass = 7
 
         datasetCSV = pd.read_csv('fer2013.csv', header = None)
-        x_datasetList = []
-        y_datasetList = []
-        lenOfDataset = len(datasetCSV[1])
+        pixels = datasetCSV.values[:, 1]
+        y = datasetCSV.values[:, 0]
 
-        for i in range(len(datasetCSV[1])):
-            x_datasetList.append([datasetCSV[1][i]])
-            y_datasetList.append(datasetCSV[0][i])
+        X = np.zeros((pixels.shape[0], 48*48))
 
-        datasetList = np.array(datasetList)
+        for i in range(X.shape[0]):
+            p = pixels[i].split(' ')
 
-        (x_train, y_train), (x_test, y_test) = \
-        (x_datasetList[:len(datasetCSV[1]) * (4 / 5)], y_datasetList[:len(datasetCSV[1]) * (4 / 5)]),
-        (x_datasetList[:len(datasetCSV[1]) * (1 / 5)], y_datasetList[:len(datasetCSV[1]) * (1 / 5)])
+            for j in range(X.shape[1]):
+                X[i, j] = int(p[j])
+
+        x_train = X[0:28710, :]
+        y_train = y[0:28710]
+        x_test = X[28710:32300, :]
+        y_test = y[28710:32300]
         
-        imgRows, imgCols = x_train.shape[1:]
+        imgRows, imgCols = 48, 48
 
-        backend.image_data_format('channels_last')
-   
+        backend.set_image_data_format('channels_last')
         x_train = x_train.reshape(x_train.shape[0], imgRows, imgCols, 1)
         x_test = x_test.reshape(x_test.shape[0], imgRows, imgCols, 1)
         inputShape = (imgRows, imgCols, 1)
