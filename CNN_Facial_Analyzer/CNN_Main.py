@@ -1,5 +1,6 @@
 import CNN_Model
 import CNN_Dataset
+import matplotlib.pyplot as plt
 from skeras import plot_acc, plot_loss
 from keras.models import load_model
 
@@ -18,10 +19,11 @@ if __name__ == "__main__":
     score = model.evaluate(data.x_train, data.y_train)
     print('Test loss:', score[0])
     print('Test accuracy:', score[1])
-
+    
     plot_loss(history)
     plt.show()
     plot_acc(history)
     plt.show()
 
     model.save('CNN_Facial_Sensitivity_Analyzer.h5')
+    
