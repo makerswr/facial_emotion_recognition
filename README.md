@@ -8,5 +8,4 @@ download here
 unarchive zip file uploaded
 
 ## 68 Shape Predictor
-download here 
---> https://github.com/AKSHAYUBHAT/TensorFace/blob/master/openface/models/dlib/shape_predictor_68_face_landmarks.dat
+download here --> https://github.com/AKSHAYUBHAT/TensorFace/blob/master/openface/models/dlib/shape_predictor_68_face_landmarks.dat
