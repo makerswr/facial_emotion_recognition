@@ -1,1 +1,1 @@
-# Support Vector machine
+# SVM Model Architecture
