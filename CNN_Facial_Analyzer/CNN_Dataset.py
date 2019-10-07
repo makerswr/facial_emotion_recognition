@@ -23,10 +23,10 @@ class DATA():
             for j in range(X.shape[1]):
                 X[i, j] = int(p[j])
 
-        x_train = X[0:28710, :]
-        y_train = y[0:28710]
-        x_test = X[28710:32300, :]
-        y_test = y[28710:32300]
+        x_train = X[0:32299, :]
+        y_train = y[0:32299]
+        x_test = X[32299:32300, :]
+        y_test = y[32299:32300]
         
         imgRows, imgCols = 48, 48
 
