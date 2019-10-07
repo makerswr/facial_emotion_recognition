@@ -1,9 +1,8 @@
-import numpy as np
 import keras as K
 from keras import layers, models
 
 class CNN(models.Sequential):
-    def __init__(self, inputShape, numOfClass):
+    def __init__(self, numOfClass, inputShape):
         super().__init__()
 
         self.add(layers.Conv2D(32, kernel_size = (3, 3),
@@ -11,7 +10,7 @@ class CNN(models.Sequential):
                                    input_shape = inputShape))
         self.add(layers.Conv2D(64, kernel_size = (3, 3), 
                                    activation = 'relu'))
-        self.add(layers.MaxPooling2D(pool_size = ( 2, 2)))
+        self.add(layers.MaxPooling2D(pool_size = (2, 2)))
         self.add(layers.Dropout(0.25))
         self.add(layers.Flatten())
         self.add(layers.Dense(128, activation = 'relu'))
@@ -19,5 +18,5 @@ class CNN(models.Sequential):
         self.add(layers.Dense(numOfClass, activation = 'softmax'))
 
         self.compile(loss = K.losses.categorical_crossentropy,
-                      optimizer = 'rmsprop',
-                      metrics = ['accuracy'])
+                     optimizer = 'rmsprop',
+                     metrics = ['accuracy'])
