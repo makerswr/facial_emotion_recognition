@@ -1,11 +1,12 @@
-import CNN_Model
+import CNN_Model_Object
+import CNN_Model_Function
 import CNN_Dataset
 import matplotlib.pyplot as plt
 from skeras import plot_acc, plot_loss
 from keras.models import load_model
 
 data = CNN_Dataset.DATA()
-model = CNN_Model.Model(data.inputShape, data.numOfClass)
+model = CNN_Model_Object.Model(data.inputShape, data.numOfClass)
 
 if __name__ == "__main__":
     batchSize = 128
