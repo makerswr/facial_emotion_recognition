@@ -16,7 +16,7 @@ class Model(models.Sequential):
         self.add(layers.Dense(128, activation = 'relu'))
         self.add(layers.Dropout(0.5))
         # self.add(layers.Dense(256, activation = 'relu'))
-        # self.add(layers.Dropout(0.5))
+        # self.add(layers.Dropout(0.3))
         self.add(layers.Dense(numOfClass, activation = 'softmax'))
 
         self.compile(loss = K.losses.categorical_crossentropy,

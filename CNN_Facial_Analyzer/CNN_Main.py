@@ -5,7 +5,7 @@ from skeras import plot_acc, plot_loss
 from keras.models import load_model
 
 data = CNN_Dataset.DATA()
-model = CNN_Model.CNN(data.inputShape, data.numOfClass)
+model = CNN_Model.Model(data.inputShape, data.numOfClass)
 
 if __name__ == "__main__":
     batchSize = 128
