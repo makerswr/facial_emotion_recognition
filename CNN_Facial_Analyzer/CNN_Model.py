@@ -1,7 +1,7 @@
 import keras as K
 from keras import layers, models
 
-class CNN(models.Sequential):
+class Model(models.Sequential):
     def __init__(self, numOfClass, inputShape):
         super().__init__()
 
@@ -15,6 +15,8 @@ class CNN(models.Sequential):
         self.add(layers.Flatten())
         self.add(layers.Dense(128, activation = 'relu'))
         self.add(layers.Dropout(0.5))
+        # self.add(layers.Dense(256, activation = 'relu'))
+        # self.add(layers.Dropout(0.5))
         self.add(layers.Dense(numOfClass, activation = 'softmax'))
 
         self.compile(loss = K.losses.categorical_crossentropy,
