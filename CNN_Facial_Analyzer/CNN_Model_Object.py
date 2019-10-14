@@ -60,22 +60,22 @@ class Model(models.Sequential):
         self.add(layers.Flatten())
 
         # Dense Layer 1
-        self.add(layers.Dense(128, activation = 'relu'))
+        self.add(layers.Dense(4096, activation = 'relu'))
         self.add(layers.BatchNormalization())
         self.add(layers.Dropout(0.5))
 
         # Dense Layer 2
-        self.add(layers.Dense(256, activation = 'relu'))
+        self.add(layers.Dense(4096), activation = 'relu'))
         self.add(layers.BatchNormalization())
         self.add(layers.Dropout(0.4))
 
         # Dense Layer 3
-        self.add(layers.Dense(512, activation = 'relu'))
+        self.add(layers.Dense(4096, activation = 'relu'))
         self.add(layers.BatchNormalization())
         self.add(layers.Dropout(0.3))
 
         # Dense Layer 4
-        self.add(layers.Dense(1024, activation = 'relu'))
+        self.add(layers.Dense(4096, activation = 'relu'))
         self.add(layers.BatchNormalization())
         self.add(layers.Dropout(0.2))
 
