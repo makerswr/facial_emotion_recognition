@@ -49,9 +49,11 @@ def Model(inputShape, numOfClass):
 
     model.add(Flatten())
 
-    model.add(Dense(4096, activation = 'relu'))
+    model.add(Dense(512, activation = 'relu'))
     model.add(Dropout(0.5))
-    model.add(Dense(4096, activation = 'relu'))
+    model.add(Dense(1024, activation = 'relu'))
+    model.add(Dropout(0.5))
+    model.add(Dense(2048, activation = 'relu'))
     model.add(Dropout(0.5))
     model.add(Dense(4096, activation = 'relu'))
     model.add(Dropout(0.5))
@@ -59,7 +61,7 @@ def Model(inputShape, numOfClass):
     model.add(Dense(numOfClass, activation = 'softmax'))
 
     model.compile(loss = K.losses.categorical_crossentropy,
-                  optimizer = Adam(lr = 1e-3, beta_1 = 0.9, beta_2 = 0.999, epsilon = 1e-7),
+                  optimizer = Adam(lr = 1e-5, beta_1 = 0.9, beta_2 = 0.999, epsilon = 1e-7),
                   metrics = ['accuracy'])
     
     return model
